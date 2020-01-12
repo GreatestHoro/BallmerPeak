@@ -6,3 +6,4 @@ class Beverage():
         self.percent_alcohol = _percent_alcohol
         self.gram_of_alcohol = CalcAlcohol.get_gram_of_alcohol(self.amount, self.percent_alcohol)
         self.oz_of_alc = CalcAlcohol.get_oz_of_alcohol(self.amount, self.percent_alcohol)
+        self.miligram_alc_pr_hundred_ml = CalcAlcohol.miligram_alc_pr_hundred_ml(self.amount, self.percent_alcohol)
