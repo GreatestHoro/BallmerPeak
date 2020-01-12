@@ -1,6 +1,6 @@
 from CalcAlcoholClass import CalcAlcohol
 
-class Beverages():
+class Beverage():
     def __init__(self, _amount, _percent_alcohol):
         self.amount = _amount
         self.percent_alcohol = _percent_alcohol
