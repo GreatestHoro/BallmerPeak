@@ -8,5 +8,5 @@ class Session():
     def __init__(self):
         self.start = datetime.now()
     
-    def add_beverage(beverage):
+    def add_beverage(self, beverage):
         self.beverages.append(beverage)
