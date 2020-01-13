@@ -42,7 +42,7 @@ class BAC:
 
     @staticmethod
     def simple_BAC_calc(person):
-        return (person.session.beverages[-1].alc_qunc*5.14/person.weight* 0.73 if person.gender == ps.Gender.male.name else 0.6)-0.15*person.session.duration
+        return (person.get_combined_oz*5.14/person.weight* 0.73 if person.gender == ps.Gender.male.name else 0.6)-0.15*person.session.duration
     
     @staticmethod
     def advanced_BAC_calc(person):
