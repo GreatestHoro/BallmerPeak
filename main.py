@@ -1,4 +1,3 @@
-#from PersonClass import Person
 import PersonClass as ps
 from BACClass import BAC
 import time
@@ -11,6 +10,7 @@ weight = 100
 height = 180
 gender = ps.Gender.male
 
+b = Beverage(33, 4.5)
 p = ps.Person(name, gender.name, age, weight, height)
 
 print(bac.calc_body_water(p), "Calc body water")

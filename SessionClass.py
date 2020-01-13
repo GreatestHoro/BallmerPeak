@@ -8,7 +8,7 @@ class Session():
 
     def __init__(self):
         self.start = datetime.now()
-    
+
     def add_beverage(cls,beverage):
         cls.beverages.append(beverage)
         cls.beverage_time[beverage] = datetime.now()
@@ -17,4 +17,4 @@ class Session():
     @property
     def duration(cls):
         dif = datetime.now() - cls.start
-        return round(((dif.total_seconds()/60)/60),5) 
+        return round(((dif.total_seconds()/60)/60),5)
