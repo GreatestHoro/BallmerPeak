@@ -1,10 +1,13 @@
 #This class handles zipfiles 
 import zipfile
 
-#This method unzips a file
-def unzipfile():
-    Dataset = "data"
-    with zipfile.ZipFile("../BallmerPeak/Dataset/Data/"+Dataset+".zip","r") as z:
-        z.extractall(".")
+class extractZip():
+    #This mehtod unzips a zip compressed file
+    #Takes the path as first input and filename as second input
+    #Uses zipfile libary
+    @staticmethod
+    def unzipfile(path, filename):
+        with zipfile.ZipFile(path + filemname + ".zip", "r") as z:
+            z.extractall(".")
 
-unzipfile()
+unzipfile("../BallmerPeak/Dataset/Data/", "data")
