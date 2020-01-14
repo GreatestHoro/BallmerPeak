@@ -7,7 +7,7 @@ class extractZip():
     #Uses zipfile libary
     @staticmethod
     def unzipfile(path, filename):
-        with zipfile.ZipFile(path + filemname + ".zip", "r") as z:
-            z.extractall(".")
+        with zipfile.ZipFile(path + filename + ".zip", "r") as z:
+            z.extractall(path)
 
-unzipfile("../BallmerPeak/Dataset/Data/", "data")
+extractZip.unzipfile("../BallmerPeak/Dataset/Data/", "data")
