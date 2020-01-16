@@ -41,8 +41,8 @@ class BAC:
         return BAC.calc_body_blood(person)/0.92
 
     @staticmethod
-    def simple_BAC_calc(person):
-        return (person.get_combined_oz*5.14/person.weight* 0.73 if person.gender == ps.Gender.male.name else 0.6)-0.15*person.session.duration
+    def simple_BAC_calc(person, ses_num):
+        return (person.get_combined_oz(-1)*5.14/person.weight* 0.73 if person.gender == ps.Gender.male.name else 0.6)-0.15*person.session[ses_num].duration_hour
     
     @staticmethod
     def advanced_BAC_calc(person):

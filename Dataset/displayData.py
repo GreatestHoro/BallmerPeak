@@ -2,6 +2,8 @@
 import pandas as p
 
 class dataHandler:
+
+    @staticmethod
     def productDataframe():
         #The Dataset
         Dataset = "open_units.csv"
@@ -51,4 +53,6 @@ class dataHandler:
 
         result = df2.at[position,output]            #Get the result
 
-        return result                               #Return the result
+        print(result)
+        #return result                               #Return the result
+
