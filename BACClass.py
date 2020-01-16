@@ -3,7 +3,7 @@ import PersonClass as ps
 class BAC:
 
     @staticmethod
-    def male_body_water(person):
+    def male_body_water(person:ps.Person)->ps.Person:
         return 2.447 + 0.3362 * person.weight + 10.74 * person.height - 0.09516 * person.age
 
     @staticmethod
@@ -41,8 +41,10 @@ class BAC:
         return BAC.calc_body_blood(person)/0.92
 
     @staticmethod
-    def simple_BAC_calc(person):
-        return (person.get_combined_oz*5.14/person.weight* 0.73 if person.gender == ps.Gender.male.name else 0.6)-0.15*person.session.duration
+    def simple_BAC_calc(person:ps.Person)->ps.Person:
+        if(len(person.session.beverages)!=0):
+            current_bac = person.prev_bac - 0.15*person.session.time_since_last_drink
+        return  (person.get_combined_oz*5.14/person.weight* 0.73 if person.gender == ps.Gender.male.name else 0.6) + current_bac
     
     @staticmethod
     def advanced_BAC_calc(person):
