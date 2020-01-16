@@ -1,5 +1,5 @@
 from datetime import datetime
-from BeverageClass import Beverage
+from PersonAttributes.BeverageClass import Beverage
 
 class Session():
     beverages = []
@@ -21,7 +21,7 @@ class Session():
     @property
     def time_since_last_drink(cls):
        dif = datetime.now() - cls.beverage_time[cls.beverages[-1]]
-       return dif.total_seconds/60/60
+       return dif.total_seconds()/60/60
 
 
     @property
