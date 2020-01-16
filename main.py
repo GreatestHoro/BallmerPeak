@@ -4,6 +4,9 @@ import time
 from BeverageClass import Beverage
 from GraphDisplayer import GraphDisplayer as GDisplay
 
+dict = {1:"one",2:"two",3:"three"} #dictionary
+print(dict.get(1))
+
 bac = BAC()
 name = "John Doe"
 age = 42
