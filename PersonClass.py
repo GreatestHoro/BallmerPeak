@@ -12,7 +12,7 @@ class Person:
         self.height = height
         self.session = []
         self.prev_bac = 0
-        self.bac = 0
+        self.current_bac = 0
 
     def start_session(self):
         self.session.append(Session())
@@ -52,8 +52,8 @@ class Person:
 
     def update_bac_values(self, ses_num):
         """Updates both BAC valuese"""
-        self.prev_bac = self.__set_pre_bac(self.bac)
-        self.bac = self.__set_bac(ses_num)
+        self.prev_bac = self.__set_pre_bac(self.current_bac)
+        self.current_bac = self.__set_bac(ses_num)
 
 class Gender(enum.Enum):
     male = 1

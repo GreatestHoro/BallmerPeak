@@ -14,14 +14,14 @@ weight = 100
 height = 180
 gender = ps.Gender.male
 
-b = Beverage(330, 4.5, "beer", "IPA", "Tuborg")
+b = Beverage(330, 100, "beer", "IPA", "Tuborg")
 p = ps.Person(name, gender.name, age, weight, height)
 
 p.start_session()
-p.session[0].add_beverage(b)
+p.session[-1].add_beverage(b)
 print(p.get_combined_gram(0))
 p.update_bac_values(-1)
-print(p.bac)
+print(p.current_bac)
 
 
 
