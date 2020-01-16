@@ -3,7 +3,7 @@ import PersonClass as ps
 class BAC:
 
     @staticmethod
-    def male_body_water(person:ps.Person)->ps.Person:
+    def male_body_water(person):
         return 2.447 + 0.3362 * person.weight + 10.74 * person.height - 0.09516 * person.age
 
     @staticmethod
@@ -26,7 +26,7 @@ class BAC:
             return BAC.female_body_water(person)
         else:
             raise ValueError("invalid gender you dumb queer fuck, go die pls")
-    
+
     @staticmethod
     def calc_body_blood(person):
         if person.gender == ps.Gender.male.name:
@@ -35,17 +35,17 @@ class BAC:
             return BAC.female_body_blood(person)
         else:
             raise ValueError("invalid gender you dumb queer fuck, go die pls")
-    
+
     @staticmethod
     def blood_to_water(person):
         return BAC.calc_body_blood(person)/0.92
 
     @staticmethod
-    def simple_BAC_calc(person:ps.Person)->ps.Person:
-        if(len(person.session.beverages)!=0):
-            current_bac = person.prev_bac - 0.15*person.session.time_since_last_drink
-        return  (person.get_combined_oz*5.14/person.weight* 0.73 if person.gender == ps.Gender.male.name else 0.6) + current_bac
-    
+    def simple_BAC_calc(person, ses_num):
+        if(len(person.session[ses_num].beverages)!=0):
+            current_bac = person.prev_bac - 0.15*person.session[ses_num].time_since_last_drink
+        return  (person.get_combined_oz(ses_num)*5.14/person.weight* 0.73 if person.gender == ps.Gender.male.name else 0.6) + current_bac
+
     @staticmethod
     def advanced_BAC_calc(person):
         return ((person.session.Consumed*BAC.blood_to_water(person))/BAC.calc_body_water(person))*person.session.beverages[-1].unit
