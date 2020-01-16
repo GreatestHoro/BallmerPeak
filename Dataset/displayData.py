@@ -44,11 +44,46 @@ class dataHandler:
         #make new dataframe with new data
         df2 = p.DataFrame(temp)                     #Create a DataFrame from temp data
         df2.dropna(inplace=True)                    #Drop NaN
-        df2.drop_duplicates(keep='first')           #Drop all duplicates
+
         df2.reset_index(drop=True, inplace=True)    #Reset the index to 0
-  
+        print (df2)
         position = 0                                #Since indexes are reset, the element we are looking for is at the 0th position
 
         result = df2.at[position,output]            #Get the result
 
         return result                               #Return the result
+
+
+    #This method returns a dataframe of all available beverages with the desired criteria
+    #Usage: if you want to see all beverages with a ABV of max 4.5, call:
+    #showAvailableBeverages(4.5, 'ABV'):
+    @staticmethod
+    def showAvailableBeverages(output, search_term):
+        
+        temp_DF = dataHandler.productDataframe()                        #Create a new DataFrame, productDataframe() returns a DataFrame
+
+        #locates and returns the rows that satisfies the conditions 
+        if search_term == 'ABV' : 
+            beverage_DF = temp_DF.loc[temp_DF['ABV'] <= output]         
+        elif search_term == 'Volume' : 
+            beverage_DF = temp_DF.loc[temp_DF['Volume'] <= output]
+        else :
+            beverage_DF = temp_DF.loc[temp_DF[search_term] == output]
+
+        beverage_DF.reset_index(inplace=True, drop=True)                #reset the index
+
+        return beverage_DF                                              #return the result
+
+    #This method returns a beverage as a list of all availiable attributes, by 
+    #calling the index position from showAvailableBeverages()
+    @staticmethod
+    def getBeverageList(output, search_term, position):
+        
+        temp_DF = dataHandler.showAvailableBeverages(output, search_term)   #Create a new DataFrame, showAvailableBeverages() returns a DataFrame
+        
+        beverage_list = temp_DF.iloc[position].tolist()                     #Chooses a beverage from the dataframe and adds it to a list
+
+        return beverage_list                                                #returns the list
+
+
+dataHandler.getBeverageList('Cider', 'Category', 0)
