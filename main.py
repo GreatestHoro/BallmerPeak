@@ -1,8 +1,9 @@
 import PersonAttributes.PersonClass as ps
-from STML.BACClass import BAC
+from STML. BACClass import BAC
 import time
 from PersonAttributes.BeverageClass import Beverage
 from Graph.GraphDisplayer import GraphDisplayer as GDisplay
+from datetime import datetime
 
 dict = {1:"one",2:"two",3:"three"} #dictionary
 print(dict.get(1))
@@ -19,9 +20,21 @@ p = ps.Person(name, gender.name, age, weight, height)
 
 p.start_session()
 p.session[-1].add_beverage(b)
-print(p.get_combined_gram(0))
 p.update_bac_values(-1)
-print(p.current_bac)
+print(p.get_combined_gram(0), "Combined gram alc")
+print(p.current_bac, "BAC")
+
+p.session[-1].register_piss()
+time.sleep(1)
+p.session[-1].register_piss()
+time.sleep(2)
+p.session[-1].register_piss()
+time.sleep(3)
+p.session[-1].register_piss()
+
+p.session[-1].set_avg_piss()
+print(str(p.session[-1].avg_piss) , "minutes AVG time between pisses")
+
 
 
 

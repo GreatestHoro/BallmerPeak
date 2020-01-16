@@ -1,5 +1,6 @@
 from datetime import datetime
 from PersonAttributes.BeverageClass import Beverage
+import STML.PissCalc as pc
 
 class Session():
     beverages = []
@@ -8,7 +9,8 @@ class Session():
     duration_minut = 0
     duration_sec = 0
     time_since_last_drink = 0
-
+    piss_times = []
+    avg_piss = 0
 
     def __init__(self):
         self.start = datetime.now()
@@ -36,3 +38,12 @@ class Session():
     def duration_sec(cls):
         dif = datetime.now() - cls.start
         return int(round(dif.total_seconds(),0))
+
+    def register_piss(self):
+        self.piss_times.append(datetime.now())
+
+    def set_avg_piss(self):
+        self.avg_piss = pc.avg_time_betweeen_all_piss(self)
+
+        
+        
