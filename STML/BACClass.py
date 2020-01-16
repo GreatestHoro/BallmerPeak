@@ -1,4 +1,4 @@
-import PersonClass as ps
+import PersonAttributes.PersonClass as ps
 
 class BAC:
 

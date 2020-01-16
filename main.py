@@ -1,8 +1,8 @@
-import PersonClass as ps
-from BACClass import BAC
+import PersonAttributes.PersonClass as ps
+from STML.BACClass import BAC
 import time
-from BeverageClass import Beverage
-from GraphDisplayer import GraphDisplayer as GDisplay
+from PersonAttributes.BeverageClass import Beverage
+from Graph.GraphDisplayer import GraphDisplayer as GDisplay
 
 dict = {1:"one",2:"two",3:"three"} #dictionary
 print(dict.get(1))

@@ -1,5 +1,5 @@
 import plotly.graph_objects as go
-import PersonClass as ps
+import PersonAttributes.PersonClass as ps
 from matplotlib import pyplot as plt
 import numpy as np
 import math  # needed for definition of pi

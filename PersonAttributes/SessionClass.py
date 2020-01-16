@@ -1,5 +1,5 @@
 from datetime import datetime
-from BeverageClass import Beverage
+from PersonAttributes.BeverageClass import Beverage
 
 class Session():
     beverages = []

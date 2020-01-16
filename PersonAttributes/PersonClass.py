@@ -1,6 +1,6 @@
 from datetime import datetime
-from SessionClass import Session
-from BACClass import BAC
+from PersonAttributes.SessionClass import Session
+from STML.BACClass import BAC
 import enum
 
 class Person:

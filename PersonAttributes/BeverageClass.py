@@ -1,4 +1,4 @@
-from CalcAlcoholClass import CalcAlcohol
+from STML.CalcAlcoholClass import CalcAlcohol
 
 class Beverage():
     def __init__(self, amount, percent_alcohol, category, style, brand):
