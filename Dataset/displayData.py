@@ -16,7 +16,6 @@ class dataHandler:
 
         return df1
 
-
     #This method returns a cell value based on product name as input value,
     #and desired value Brand, Category, Style, Volume, ABV.
     #Usage -> dataHandler.getValue('Carlsberg Export', Category)
@@ -86,6 +85,3 @@ class dataHandler:
         beverage_list = temp_DF.iloc[position].tolist()                     #Chooses a beverage from the dataframe and adds it to a list
 
         return beverage_list                                                #returns the list
-
-
-dataHandler.getBeverageList('Cider', 'Category', 0)
